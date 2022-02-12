@@ -1,10 +1,21 @@
+import TypingEffect from 'react-typing-effect';
+
 const Home = (props) => {
   return (
-    <div className="mt-3">
-      <p className="display-4 text-center">Hello!<br></br>I am  Daniel Loos @danlooo</p>
+    <div className="mt-3 text-center">
 
-      <p className="text-center"> as of {props.date}, I have {props.user.reputation} reputation and answered {props.answers}  questions on stack overflow</p>
-    </div>
+      <div className='display-6'>
+        <p className='m-0'>Hello, I&apos;m </p>
+        <p className='m-0'>Daniel Loos</p>
+        <div className='m-0 '>
+          <TypingEffect staticText="I am a" text={['data scientist', 'bioinformatician', 'software engineer']} eraseSpeed="400ms" />
+        </div>
+      </div>
+      <p className='mt-5'> I have {props.user.reputation} reputation and answered {props.answers}  questions on stack overflow</p>
+
+      <p className='mt-5'>Last update: {props.date} </p>
+    </div >
+
   )
 }
 
