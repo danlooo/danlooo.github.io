@@ -3,7 +3,7 @@ const Home = (props) => {
     <div className="mt-3">
       <p className="display-4 text-center">Hello!<br></br>I am  Daniel Loos @danlooo</p>
 
-      <p className="text-center"> has {props.user.reputation} reputation and answered {props.answers}  questions on stack overflow</p>
+      <p className="text-center"> as of {props.date}, I have {props.user.reputation} reputation and answered {props.answers}  questions on stack overflow</p>
     </div>
   )
 }
@@ -20,7 +20,8 @@ export async function getStaticProps() {
   return {
     props: {
       user: user_res.items[0],
-      answers: answers_res.total
+      answers: answers_res.total,
+      date: new Date().toString(),
     },
   }
 }
