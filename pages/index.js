@@ -15,8 +15,8 @@ const Home = () => {
       })
   }, [])
 
-  if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No profile data</p>
+  if (isLoading) return <p />
+  if (!data) return <p />
 
   return (
     <div className="mt-3">
