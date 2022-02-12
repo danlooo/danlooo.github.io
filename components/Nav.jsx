@@ -4,12 +4,17 @@ const Nav = () => {
   return (
     <nav className="nav pt-3 border-bottom">
       <Link href="/" passHref>
-        <h2 className="pointer">Daniel Loos</h2>
+        <h2 className="pointer" >Daniel Loos</h2>
       </Link>
 
-      <Link href="/bio" passHref>
-        <p className="ms-5 pointer lead my-auto">Bio</p>
+      <Link href="/bio" passHref >
+        <p className="ms-5 pointer lead my-auto" >Bio</p>
       </Link>
+
+      <Link href="/blog" passHref>
+        <p className="ms-5 pointer lead my-auto" >Blog</p>
+      </Link>
+
     </nav>
   )
 }
