@@ -35,8 +35,30 @@ img.muted:not(:hover) {
   filter: grayscale(100%);
 }
 
+.card {
+  margin-top:  2rem;;
+}
+
 .card-img {
   width: 100%;
   height: 15vw;
   object-fit: scale-down;
+  margin: 20px;
+  height: 7rem;
 }
+
+.rowwise {
+  display: flex;
+  flex-direction: column;
+}
+
+.rowwise >.card {
+  border: lightgray 1px solid !important;
+  border-radius: 10px !important;
+}
+
+body {
+  background: rgb(255,255,255);
+  background: linear-gradient(160deg, rgba(255,255,255,1) 26%, rgba(250,132,0,0.6656863428965336) 85%); 
+  height: 100vh;
+ }
