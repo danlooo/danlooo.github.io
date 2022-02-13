@@ -36,7 +36,8 @@ img.muted:not(:hover) {
 }
 
 .card {
-  margin-top:  2rem;;
+  margin-top:  2rem;
+  background-color: #ffffffa6
 }
 
 .card-img {
