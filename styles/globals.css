@@ -18,3 +18,19 @@ a {
 .pointer {
   cursor: pointer;
 }
+
+.gold  {
+  color: hsl(48,100%,50%);
+}
+
+.silver {
+  color: hsl(210,6%,72%);
+}
+
+.bronze {
+  color: hsl(28,38%,67%);
+}
+
+img.muted:not(:hover) {
+  filter: grayscale(100%);
+}

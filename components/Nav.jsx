@@ -7,8 +7,8 @@ const Nav = () => {
         <h2 className="pointer" >Daniel Loos</h2>
       </Link>
 
-      <Link href="/bio" passHref >
-        <p className="ms-5 pointer lead my-auto" >Bio</p>
+      <Link href="/cv" passHref >
+        <p className="ms-5 pointer lead my-auto" >CV</p>
       </Link>
 
       <Link href="/blog" passHref>
