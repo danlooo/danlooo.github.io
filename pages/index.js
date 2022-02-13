@@ -35,9 +35,9 @@ const Home = (props) => {
                       <div>{props.answers} answers</div>
                     </p>
                     <p className="d-flex">
-                      <div><span className='gold '>● </span> {props.user.badge_counts?.gold}</div>
-                      <div><span className='silver '>● </span> {props.user.badge_counts?.silver}</div>
-                      <div><span className='bronze'>● </span> {props.user.badge_counts?.bronze}</div>
+                      <div><span className='gold '>⬤ </span> {props.user.badge_counts?.gold}</div>
+                      <div><span className='silver '>⬤ </span> {props.user.badge_counts?.silver}</div>
+                      <div><span className='bronze'>⬤ </span> {props.user.badge_counts?.bronze}</div>
                     </p>
                   </Card.Text>
                 </Card.Body>
@@ -109,7 +109,7 @@ export async function getStaticProps() {
   return {
     props: {
       user: user_res,
-      answers: answers_res,
+      answers: answers_res.total,
       date: new Date().toString(),
     },
   }
