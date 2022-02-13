@@ -63,13 +63,13 @@ const Home = (props) => {
 }
 
 export async function getStaticProps() {
-  const user_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
+  let user_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
     .then(x => x.json())
   if (user_res.error_id == undefined) {
     user_res = user_res.items[0]
   }
 
-  const answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
+  let answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
     .then(x => x.json())
   if (answers_res.total == undefined) {
     answers_res.total = "NA"
