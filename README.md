@@ -1,5 +1,4 @@
-### A Next.js and MDX blog
+# My personal website for work
 
-Tutorial: https://blog.jetbrains.com/webstorm/2021/10/building-a-blog-with-next-js-and-mdx/
-
-Built by [Ebenezer Don on YouTube](https://youtube.com/ebenezerdon)
+- static website generation using [next.js](https://nextjs.org/) scheduled using GitHub actions
+- [MDX](https://mdxjs.com/) blog
