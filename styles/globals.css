@@ -63,3 +63,7 @@ body {
   background: linear-gradient(160deg, rgba(255,255,255,1) 26%, rgba(250,132,0,0.6656863428965336) 85%); 
   min-height: 100vh;
  }
+
+ .d-flex {
+   gap: 1.5rem;
+ }

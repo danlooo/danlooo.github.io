@@ -29,11 +29,12 @@ const Home = (props) => {
                 <Card.Body>
                   <Card.Title>Stack overflow contributor</Card.Title>
                   <Card.Text>
-                    <p className="card-text d-flex justify-content-between">
-                      <div>{props.user?.reputation} reputation</div>
+                    <p className="d-flex">
+                      <div className='mr-1'>
+                        {props.user?.reputation} reputation</div>
                       <div>{props.answers} answers</div>
                     </p>
-                    <p className="card-text d-flex justify-content-around ">
+                    <p className="d-flex">
                       <div><span className='gold '>● </span> {props.user.badge_counts?.gold}</div>
                       <div><span className='silver '>● </span> {props.user.badge_counts?.silver}</div>
                       <div><span className='bronze'>● </span> {props.user.badge_counts?.bronze}</div>
@@ -53,7 +54,7 @@ const Home = (props) => {
             <Col>
               <Card.Body>
                 <a href={orchid_url}><Card.Title>Scientist</Card.Title></a>                <Card.Text>
-                  <p className="card-text d-flex justify-content-between">
+                  <p className="d-flex">
                     <a href={orchid_url}>3 publications</a>
                     <a href={orchid_url}>NA citations</a>
                   </p>
@@ -74,7 +75,7 @@ const Home = (props) => {
               <Card.Body>
                 <a href={github_url}><Card.Title>Software engineer</Card.Title></a>
                 <Card.Text>
-                  <p className="card-text d-flex justify-content-between">
+                  <p className="d-flex">
                     <a href={github_url}>NA repositories</a>
                     <a href={github_url}>NA  filed issues</a>
                   </p>
