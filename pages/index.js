@@ -1,4 +1,5 @@
 import TypingEffect from 'react-typing-effect';
+import Image from 'next/image'
 
 const Home = (props) => {
   return (
@@ -17,7 +18,7 @@ const Home = (props) => {
         <div className="row">
           <div className="col-md-4">
             <a href="https://stackoverflow.com/users/16853114/danlooo">
-              <img className="muted w-50" src="stackoverflow.svg" alt="Stack overflow logo" />
+              <Image className="muted w-50" src="stackoverflow.svg" alt="Stack overflow logo" />
             </a>
           </div>
           <div className="col-md-8">
@@ -43,7 +44,7 @@ const Home = (props) => {
         <div className="row">
           <div className="col-md-4">
             <a href="https://stackoverflow.com/users/16853114/danlooo">
-              <img className="muted w-50" src="lab.png" alt="Stack overflow logo" />
+              <Image className="muted w-50" src="lab.png" alt="Stack overflow logo" />
             </a>
           </div>
           <div className="col-md-8">
