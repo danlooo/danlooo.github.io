@@ -109,7 +109,7 @@ export async function getStaticProps() {
   return {
     props: {
       user: user_res,
-      answers: 5,
+      answers: answers_res,
       date: new Date().toString(),
     },
   }
