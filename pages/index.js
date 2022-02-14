@@ -46,13 +46,13 @@ const Home = (props) => {
                 <Card.Text>
                   <p className="d-flex">
                     <div className='mr-1'>
-                      {props.user?.reputation} reputation</div>
-                    <div>{props.answers} answers</div>
+                      {props.so_user?.reputation} reputation</div>
+                    <div>{props.so_answers} answers</div>
                   </p>
                   <p className="d-flex">
-                    <div><span className='gold '>⬤ </span> {props.user.badge_counts?.gold}</div>
-                    <div><span className='silver '>⬤ </span> {props.user.badge_counts?.silver}</div>
-                    <div><span className='bronze'>⬤ </span> {props.user.badge_counts?.bronze}</div>
+                    <div><span className='gold '>⬤ </span> {props.so_user.badge_counts?.gold}</div>
+                    <div><span className='silver '>⬤ </span> {props.so_user.badge_counts?.silver}</div>
+                    <div><span className='bronze'>⬤ </span> {props.so_user.badge_counts?.bronze}</div>
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -108,22 +108,17 @@ const Home = (props) => {
 }
 
 export async function getStaticProps() {
-  let user_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
+  let so_user_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
     .then(x => x.json())
-  if (user_res.error_id == undefined) {
-    user_res = user_res.items[0]
-  }
+    .then(x => x.items?.[0])
 
-  let answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
+  let so_answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
     .then(x => x.json())
-  if (answers_res.total == undefined) {
-    answers_res.total = "NA"
-  }
 
   return {
     props: {
-      user: user_res,
-      answers: answers_res.total,
+      so_user: so_user_res,
+      so_answers: so_answers_res?.total,
       date: new Date().toString(),
     },
   }
