@@ -1,11 +1,14 @@
 import TypingEffect from 'react-typing-effect';
 import Image from 'next/image'
-import { Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
+import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 
 const Home = (props) => {
   const orchid_url = "https://orcid.org/0000-0002-4024-4443"
   const github_url = "https://github.com/danlooo"
   const so_url = "https://stackoverflow.com/users/16853114/danlooo"
+  const linkedin_url = "https://www.linkedin.com/in/danlooo/"
+
+  const social_size = 35
 
   return (
     <div>
@@ -18,6 +21,13 @@ const Home = (props) => {
           </div>
         </div>
       </div >
+
+      <Container id="social-profile-buttons" className='d-flex mb-4 justify-content-center'>
+        <a href={linkedin_url}><Image title="LinkedIn profile" alt="LinkedIn logo" src="linkedin.svg" width={social_size} height={social_size}></Image></a>
+        <a href={orchid_url}><Image title="ORCiD profile" alt="ORCiDlogo" src="orcid.svg" width={social_size} height={social_size}></Image></a>
+        <a href={github_url}><Image title="GitHub profile" alt="GitHub logo" src="github.svg" width={social_size} height={social_size}></Image></a>
+        <a href={so_url}><Image title="Stack Overflow profile" alt="Stack overflow logo" src="stackoverflow.svg" width={social_size} height={social_size}></Image></a>
+      </Container>
 
       <CardGroup className='rowwise'>
         <Card >

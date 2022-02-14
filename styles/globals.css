@@ -73,3 +73,7 @@ body {
  .d-flex {
    gap: 1.5rem;
  }
+
+ #social-profile-buttons img:not(:hover)  {
+  filter: grayscale(100%);
+}
