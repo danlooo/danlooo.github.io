@@ -44,7 +44,8 @@ img.muted:not(:hover) {
   width: 100%;
   height: 15vw;
   object-fit: scale-down;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   height: 7rem;
 }
 

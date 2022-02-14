@@ -5,6 +5,7 @@ import { Button, Card, CardGroup, Col, Row } from 'react-bootstrap';
 const Home = (props) => {
   const orchid_url = "https://orcid.org/0000-0002-4024-4443"
   const github_url = "https://github.com/danlooo"
+  const so_url = "https://stackoverflow.com/users/16853114/danlooo"
 
   return (
     <div>
@@ -20,36 +21,38 @@ const Home = (props) => {
 
       <CardGroup className='rowwise'>
         <Card >
-          <a href="https://stackoverflow.com/users/16853114/danlooo">
-            <Row>
-              <Col xs={12} sm={4} md={2} lg={2}>
+          <Row>
+            <Col xs={12} sm={4} md={2} lg={2}>
+              <a href={so_url}>
                 <Card.Img src="stackoverflow.svg" />
-              </Col>
-              <Col >
-                <Card.Body>
-                  <Card.Title>Stack overflow contributor</Card.Title>
-                  <Card.Text>
-                    <p className="d-flex">
-                      <div className='mr-1'>
-                        {props.user?.reputation} reputation</div>
-                      <div>{props.answers} answers</div>
-                    </p>
-                    <p className="d-flex">
-                      <div><span className='gold '>⬤ </span> {props.user.badge_counts?.gold}</div>
-                      <div><span className='silver '>⬤ </span> {props.user.badge_counts?.silver}</div>
-                      <div><span className='bronze'>⬤ </span> {props.user.badge_counts?.bronze}</div>
-                    </p>
-                  </Card.Text>
-                </Card.Body>
-              </Col>
-            </Row>
-          </a>
+              </a>
+            </Col>
+            <Col >
+              <Card.Body>
+                <a href={so_url}><Card.Title>Stack overflow contributor</Card.Title></a>
+                <Card.Text>
+                  <p className="d-flex">
+                    <div className='mr-1'>
+                      {props.user?.reputation} reputation</div>
+                    <div>{props.answers} answers</div>
+                  </p>
+                  <p className="d-flex">
+                    <div><span className='gold '>⬤ </span> {props.user.badge_counts?.gold}</div>
+                    <div><span className='silver '>⬤ </span> {props.user.badge_counts?.silver}</div>
+                    <div><span className='bronze'>⬤ </span> {props.user.badge_counts?.bronze}</div>
+                  </p>
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
         </Card>
 
         <Card >
           <Row>
             <Col xs={12} sm={4} md={2} lg={2}>
-              <Card.Img src="lab.png" />
+              <a href={orchid_url}>
+                <Card.Img src="lab.png" />
+              </a>
             </Col>
             <Col>
               <Card.Body>
@@ -69,7 +72,7 @@ const Home = (props) => {
         <Card >
           <Row>
             <Col xs={12} sm={4} md={2} lg={2}>
-              <Card.Img src="github.svg" />
+              <a href={github_url}> <Card.Img src="github.svg" /></a>
             </Col>
             <Col>
               <Card.Body>
@@ -79,7 +82,8 @@ const Home = (props) => {
                     <a href={github_url}>NA repositories</a>
                     <a href={github_url}>NA  filed issues</a>
                   </p>
-                  <p>Languages: R, Bash, </p>
+                  <iframe id="github-language-stats" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danlooo&layout=compact" width="100%" height="180px" />
+                  <p>Languages: R, Bash </p>
                   <p>Frameworks: R shiny, Nextflow</p>
                 </Card.Text>
               </Card.Body>
