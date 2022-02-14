@@ -14,7 +14,7 @@ const Home = (props) => {
           <p className='m-0'>Hello, I&apos;m </p>
           <p className='m-0'>Daniel Loos</p>
           <div className='m-0 '>
-            <TypingEffect staticText="I am a" text={['data scientist', 'bioinformatician', 'software engineer']} eraseSpeed="400ms" />
+            <TypingEffect staticText="I am a" text={['data scientist', 'bioinformatician', 'software engineer']} />
           </div>
         </div>
       </div >
@@ -104,7 +104,7 @@ export async function getStaticProps() {
     user_res = user_res.items[0]
   }
 
-  let answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
+  let answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
     .then(x => x.json())
   if (answers_res.total == undefined) {
     answers_res.total = "NA"
