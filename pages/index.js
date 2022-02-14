@@ -47,7 +47,7 @@ const Home = (props) => {
                   <p className="d-flex">
                     <div className='mr-1'>
                       {props.so_user?.reputation} reputation</div>
-                    <div>{props.so_answers} answers</div>
+                    <div>{props.so_answers?.total} answers</div>
                   </p>
                   <p className="d-flex">
                     <div><span className='gold '>⬤ </span> {props.so_user.badge_counts?.gold}</div>
@@ -72,7 +72,6 @@ const Home = (props) => {
                 <a href={orchid_url}><Card.Title>Scientist</Card.Title></a>                <Card.Text>
                   <p className="d-flex">
                     <a href={orchid_url}>3 publications</a>
-                    <a href={orchid_url}>NA citations</a>
                   </p>
                   <p><a href="https://www.uni-jena.de/en/msc-bioinformatics">M.Sc. Bioinformatics, University of Jena</a></p>
                   <p><a href="https://www.uni-luebeck.de/en/university-education/degree-programmes/molecular-life-science.html">B.Sc. Molecular Life Science, University of Lübeck</a></p>
@@ -92,10 +91,10 @@ const Home = (props) => {
                 <a href={github_url}><Card.Title>Software engineer</Card.Title></a>
                 <Card.Text>
                   <p className="d-flex">
-                    <a href={github_url}>NA repositories</a>
-                    <a href={github_url}>NA  filed issues</a>
+                    <a href={github_url}>{props.gh_user.public_repos} repositories</a>
+                    <a href={github_url}> {props.gh_commits?.total_count} commits</a>
                   </p>
-                  <p>Languages: R, Bash </p>
+                  <p>Languages: R, Python, Bash, Java </p>
                   <p>Frameworks: R shiny, Nextflow</p>
                 </Card.Text>
               </Card.Body>
@@ -108,17 +107,22 @@ const Home = (props) => {
 }
 
 export async function getStaticProps() {
-  let so_user_res = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
+  let so_user = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
     .then(x => x.json())
     .then(x => x.items?.[0])
 
-  let so_answers_res = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
+  let so_answers = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
     .then(x => x.json())
+
+  let gh_user = await fetch('https://api.github.com/users/danlooo').then(x => x.json())
+  let gh_commits = await fetch('https://api.github.com/search/commits?q=author:danlooo').then(x => x.json())
 
   return {
     props: {
-      so_user: so_user_res,
-      so_answers: so_answers_res?.total,
+      so_user: so_user,
+      so_answers: so_answers,
+      gh_user: gh_user,
+      gh_commits: gh_commits,
       date: new Date().toString(),
     },
   }
