@@ -1,6 +1,7 @@
 import TypingEffect from 'react-typing-effect';
 import Image from 'next/image'
 import { Button, Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
+import { JSDOM } from 'jsdom';
 
 const Home = (props) => {
   const orchid_url = "https://orcid.org/0000-0002-4024-4443"
@@ -71,7 +72,7 @@ const Home = (props) => {
               <Card.Body>
                 <a href={orchid_url}><Card.Title>Scientist</Card.Title></a>                <Card.Text>
                   <p className="d-flex">
-                    <a href={orchid_url}>3 publications</a>
+                    <a href={orchid_url}>{props.orcid.works} publications</a>
                   </p>
                   <p><a href="https://www.uni-jena.de/en/msc-bioinformatics">M.Sc. Bioinformatics, University of Jena</a></p>
                   <p><a href="https://www.uni-luebeck.de/en/university-education/degree-programmes/molecular-life-science.html">B.Sc. Molecular Life Science, University of Lübeck</a></p>
@@ -117,12 +118,22 @@ export async function getStaticProps() {
   let gh_user = await fetch('https://api.github.com/users/danlooo').then(x => x.json())
   let gh_commits = await fetch('https://api.github.com/search/commits?q=author:danlooo').then(x => x.json())
 
+
+  let orcid_xml = await fetch('https://pub.orcid.org/v2.1/0000-0002-4024-4443')
+    .then(x => x.text())
+    .then(x => new JSDOM(x))
+
+  let orcid = {
+    works: orcid_xml.window.document.getElementsByTagName("activities:group").length
+  }
+
   return {
     props: {
       so_user: so_user,
       so_answers: so_answers,
       gh_user: gh_user,
       gh_commits: gh_commits,
+      orcid: orcid,
       date: new Date().toString(),
     },
   }
