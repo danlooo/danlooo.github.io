@@ -34,7 +34,7 @@ const Home = (props) => {
           <Row>
             <Col xs={12} sm={4} md={2} lg={2}>
               <a href={so_url}>
-                <Card.Img src="stackoverflow.svg" />
+                <Card.Img alt="Stack Overflow logo" src="stackoverflow.svg" />
               </a>
             </Col>
             <Col >
@@ -64,7 +64,7 @@ const Home = (props) => {
           <Row>
             <Col xs={12} sm={4} md={2} lg={2}>
               <a href={orchid_url}>
-                <Card.Img src="lab.png" />
+                <Card.Img alt="Laboratory" src="lab.png" />
               </a>
             </Col>
             <Col>
@@ -85,7 +85,7 @@ const Home = (props) => {
         <Card >
           <Row>
             <Col xs={12} sm={4} md={2} lg={2}>
-              <a href={github_url}> <Card.Img src="github.svg" /></a>
+              <a href={github_url}> <Card.Img alt="GitHub logo" src="github.svg" /></a>
             </Col>
             <Col>
               <Card.Body>
