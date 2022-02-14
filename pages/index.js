@@ -47,7 +47,7 @@ const Home = (props) => {
                 <Card.Text>
                   <p className="d-flex">
                     <div className='mr-1'>
-                      {props.so_user?.reputation} reputation</div>
+                      reputation: {props.so_user?.reputation}  (top {props.so_rank}%  of all users, all time)</div>
                     <div>{props.so_answers?.total} answers</div>
                   </p>
                   <p className="d-flex">
@@ -111,9 +111,14 @@ export async function getStaticProps() {
   let so_user = await fetch('https://api.stackexchange.com/2.3/users/16853114?site=stackoverflow')
     .then(x => x.json())
     .then(x => x.items?.[0])
-
   let so_answers = await fetch('https://api.stackexchange.com/2.3/users/16853114/answers?site=stackoverflow&filter=total')
     .then(x => x.json())
+
+  let so_rank = await fetch('https://data.stackexchange.com/stackoverflow/csv/1902554?UserId=16853114')
+    .then(x => x.text())
+    // manual cvs to float
+    .then(x => x.split("\r\n")[1].split(",")[2].replaceAll("\"", "") * 100)
+    .then(x => x.toFixed(2))
 
   let gh_user = await fetch('https://api.github.com/users/danlooo').then(x => x.json())
   let gh_commits = await fetch('https://api.github.com/search/commits?q=author:danlooo').then(x => x.json())
@@ -131,6 +136,7 @@ export async function getStaticProps() {
     props: {
       so_user: so_user,
       so_answers: so_answers,
+      so_rank: so_rank,
       gh_user: gh_user,
       gh_commits: gh_commits,
       orcid: orcid,
