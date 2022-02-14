@@ -94,8 +94,6 @@ const Home = (props) => {
           </Row>
         </Card>
       </CardGroup>
-
-      <p className='mt-5'>Last update: {props.date} </p>
     </div >
   )
 }
