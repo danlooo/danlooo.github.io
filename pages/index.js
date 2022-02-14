@@ -95,7 +95,6 @@ const Home = (props) => {
                     <a href={github_url}>NA repositories</a>
                     <a href={github_url}>NA  filed issues</a>
                   </p>
-                  <iframe id="github-language-stats" src="https://github-readme-stats.vercel.app/api/top-langs/?username=danlooo&layout=compact" width="100%" height="180px" />
                   <p>Languages: R, Bash </p>
                   <p>Frameworks: R shiny, Nextflow</p>
                 </Card.Text>
