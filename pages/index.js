@@ -29,7 +29,10 @@ const Home = (props) => {
             </Col>
             <Col >
               <Card.Body>
-                <a href={so_url}><Card.Title>Stack overflow contributor</Card.Title></a>
+                <a href={so_url}><Card.Title>Stack Overflow contributor</Card.Title></a>
+                <p>
+                  I answer real world questions on the Stack Overflow community to learn about other technologies and  to improve my communication skills.
+                </p>
                 <Card.Text>
                   <p className="d-flex">
                     <div className='mr-1'>
