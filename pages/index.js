@@ -45,15 +45,12 @@ const Home = (props) => {
                   I answer real world questions on the Stack Overflow community to learn about other technologies and  to improve my communication skills.
                 </p>
                 <Card.Text>
-                  <p className="d-flex">
-                    <div className='mr-1'>
-                      reputation: {props.so_user?.reputation}  (top {props.so_rank}%  of all users, all time)</div>
-                    <div>{props.so_answers?.total} answers</div>
-                  </p>
-                  <p className="d-flex">
+                  <p className="d-flex flex-wrap">
                     <div><span className='gold '>⬤ </span> {props.so_user.badge_counts?.gold}</div>
                     <div><span className='silver '>⬤ </span> {props.so_user.badge_counts?.silver}</div>
                     <div><span className='bronze'>⬤ </span> {props.so_user.badge_counts?.bronze}</div>
+                    <div>{props.so_user?.reputation} reputation (top {props.so_rank}%  of all users, all time)</div>
+                    <div>{props.so_answers?.total} answers</div>
                   </p>
                 </Card.Text>
               </Card.Body>
@@ -71,7 +68,7 @@ const Home = (props) => {
             <Col>
               <Card.Body>
                 <a href={orchid_url}><Card.Title>Scientist</Card.Title></a>                <Card.Text>
-                  <p className="d-flex">
+                  <p className="d-flex flex-wrap">
                     <a href={orchid_url}>{props.orcid.works} publications</a>
                   </p>
                   <p><a href="https://www.uni-jena.de/en/msc-bioinformatics">M.Sc. Bioinformatics, University of Jena</a></p>
@@ -91,7 +88,7 @@ const Home = (props) => {
               <Card.Body>
                 <a href={github_url}><Card.Title>Software engineer</Card.Title></a>
                 <Card.Text>
-                  <p className="d-flex">
+                  <p className="d-flex flex-wrap">
                     <a href={github_url}>{props.gh_user.public_repos} repositories</a>
                     <a href={github_url}> {props.gh_commits?.total_count} commits</a>
                   </p>
