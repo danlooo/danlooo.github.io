@@ -33,7 +33,7 @@ const Home = (props) => {
       <CardGroup className='rowwise'>
         <Card >
           <Row>
-            <Col xs={12} sm={4} md={2} lg={2}>
+            <Col xs={12} lg={2}>
               <a href={so_url}>
                 <Card.Img alt="Stack Overflow logo" src="stackoverflow.svg" />
               </a>
@@ -63,7 +63,7 @@ const Home = (props) => {
 
         <Card >
           <Row>
-            <Col xs={12} sm={4} md={2} lg={2}>
+            <Col xs={12} lg={2}>
               <a href={orchid_url}>
                 <Card.Img alt="Laboratory" src="lab.png" />
               </a>
@@ -84,7 +84,7 @@ const Home = (props) => {
 
         <Card >
           <Row>
-            <Col xs={12} sm={4} md={2} lg={2}>
+            <Col xs={12} lg={2}>
               <a href={github_url}> <Card.Img alt="GitHub logo" src="github.svg" /></a>
             </Col>
             <Col>
