@@ -9,9 +9,16 @@ on:
     workflow_dispatch:
 
 jobs:
+    upgrade:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: ahmadnassri/action-dependabot-auto-merge@v2
+            with:
+              target: minor # includes patch updates!
+              github-token: ${{ secrets.GITHUB_TOKEN }}
+              
     deployment:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v2
 
