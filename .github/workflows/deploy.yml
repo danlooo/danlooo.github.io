@@ -8,10 +8,9 @@ on:
         - cron: "1 */6 * * *"
     workflow_dispatch:
 
-jobs:
+jobs:              
     deployment:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v2
 
